@@ -368,7 +368,7 @@
 		return
 
 	var/obj/item/seeds/our_seed = our_plant.get_plant_seed()
-	our_plant.light_system = MOVABLE_LIGHT
+	our_plant.light_system = OVERLAY_LIGHT
 	our_plant.AddComponent(/datum/component/overlay_lighting, glow_range(our_seed), glow_power(our_seed), glow_color)
 
 /*
@@ -517,7 +517,10 @@
 	description = "It may be harvested multiple times from the same plant."
 	icon = "cubes-stacked"
 	/// Don't allow replica pods to be multi harvested, please.
-	seed_blacklist = list(/obj/item/seeds/replicapod)
+	seed_blacklist = list(
+		/obj/item/seeds/replicapod,
+		/obj/item/seeds/seedling/evil,
+	)
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
 
 /*

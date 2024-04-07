@@ -304,7 +304,7 @@ export const FeatureNumberInput = (
 
   return (
     <NumberInput
-      onChange={(e, value) => {
+      onChange={(value) => {
         props.handleSetValue(value);
       }}
       minValue={props.serverData.minimum}
@@ -357,7 +357,7 @@ export const FeatureValueInput = (props: {
 
   useEffect(() => {
     setPredictedValue(props.value);
-  }, [data.active_slot]);
+  }, [data.active_slot, props.value]);
 
   return (
     <ServerPreferencesFetcher
